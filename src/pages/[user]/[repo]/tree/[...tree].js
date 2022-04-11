@@ -1,6 +1,6 @@
 import { useRouter } from "next/dist/client/router";
 import useFetchRepo from "../../../../hooks/use-fetchUser";
-import FileList from "../../../../components/FileList";
+import FileList from "../../../../components/FileList/FileList";
 
 export default function DisplayFileStructure() {
   const router = useRouter();
