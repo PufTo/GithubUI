@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import useFetchRepo from "../../../hooks/use-fetchUser";
-import FileList from "../../../components/FileList";
-
+import FileList from "../../../components/FileList/FileList";
 export default function RepoDetails() {
   const router = useRouter();
   const { user, repo } = router.query;

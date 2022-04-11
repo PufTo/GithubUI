@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import useFetchRepo from "../../hooks/use-fetchUser";
-import RepoList from "../../components/RepoList";
+import RepoList from "../../components/RepoList/RepoList";
 import { useState } from "react";
 import { useEffect } from "react";
 // /
