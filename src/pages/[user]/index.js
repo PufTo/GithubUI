@@ -3,7 +3,8 @@ import useFetchRepo from "../../hooks/use-fetchUser";
 import RepoList from "../../components/RepoList/RepoList";
 import { useState } from "react";
 import { useEffect } from "react";
-// /
+import Navbar from "../../components/NavBar/NavBar"
+
 const filterRepos = (repoList, query) => {
   return repoList.filter((repo) => repo.name.toLowerCase().includes(query));
 };
@@ -49,6 +50,7 @@ export default function UserRepo() {
 
   return (
     <div>
+      <Navbar/>
       <input
         autoComplete="off"
         id="filterInput"

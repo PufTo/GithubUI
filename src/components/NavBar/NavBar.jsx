@@ -3,6 +3,8 @@ import AppBar from "@mui/material/AppBar";
 import { BsGithub } from "react-icons/bs";
 import { IconContext } from "react-icons";
 import Searchinput from "./SearchInput";
+import Login from "./LogIn";
+
 
 export default function NavBar() {
   return (
@@ -10,6 +12,7 @@ export default function NavBar() {
       sx={{
         display: "flex",
         flexDirection: "row",
+        position:"static",
         height: "62px",
         backgroundColor: " rgb(36,41,47)",
         alignItems: "center",
@@ -20,6 +23,7 @@ export default function NavBar() {
         <BsGithub />
       </IconContext.Provider>
       <Searchinput />
+      <Login/>
     </AppBar>
   );
 }
