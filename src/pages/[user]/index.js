@@ -3,7 +3,8 @@ import useFetchRepo from "../../hooks/use-fetchUser";
 import RepoList from "../../components/RepoList/RepoList";
 import { useState } from "react";
 import { useEffect } from "react";
-import Navbar from "../../components/NavBar/NavBar"
+
+import Navbar from "../../components/NavBar/NavBar";
 
 const filterRepos = (repoList, query) => {
   return repoList.filter((repo) => repo.name.toLowerCase().includes(query));
@@ -15,9 +16,7 @@ export default function UserRepo() {
   const username = router.query.user;
   console.log(username);
 
-  const { data, isLoading, isError } = useFetchRepo(
-    `https://api.github.com/users/${username}/repos`
-  );
+  const { data, isLoading, isError } = useFetchRepo(`https://api.github.com/users/${username}/repos`);
 
   const [repoList, setRepoList] = useState([]);
 
@@ -42,7 +41,7 @@ export default function UserRepo() {
     if (successfulFetch) {
       setRepoList(filterRepos(data, filterQuery));
     }
-  }, [filterQuery, isLoading, isError]);
+  }, [filterQuery, isLoading, isError,username]);
 
   const handleInputChange = (event) => {
     setInputFilterValue(event.target.value);
@@ -56,8 +55,8 @@ export default function UserRepo() {
         id="filterInput"
         placeholder={"Type here to filter by name"}
         onChange={handleInputChange}
-      ></input>
-      {isLoading ? <div>LOADING</div> : <RepoList repoList={repoList} />}
+      ></input>{" "}
+      {isLoading ? <div> LOADING </div> : <RepoList repoList={repoList} />}{" "}
     </div>
   );
 }

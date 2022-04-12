@@ -4,6 +4,7 @@ import Avatar from "@mui/material/Avatar";
 import { Box } from "@mui/material";
 
 const Login = () => {
+
   return (
     <Box style={{display: "flex ", alignItems:"center" ,marginLeft:"auto"}}>
       <Avatar alt=""  src="" style={{ height:"32px", width:"32px" , marginRight:"8px"}} />
