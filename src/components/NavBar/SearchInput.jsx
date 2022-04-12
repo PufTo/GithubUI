@@ -18,8 +18,6 @@ const Searchinput = () => {
       : console.log("Error")
   };
 
-
-const Searchinput = () => 
   return (
     <>
       <InputBase
