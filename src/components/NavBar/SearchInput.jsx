@@ -2,6 +2,7 @@ import React from "react";
 import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
 import { BsSlashSquare } from "react-icons/bs";
+
 import { useRouter } from "next/router";
 import { useRef } from "react";
 
@@ -17,6 +18,8 @@ const Searchinput = () => {
       : console.log("Error")
   };
 
+
+const Searchinput = () => 
   return (
     <>
       <InputBase
@@ -31,13 +34,15 @@ const Searchinput = () => {
           fontSize: "14px",
         }}
         placeholder="Search or jump to..."
+
         inputProps={{ ref: inputRef }}
-        onKeyDown={handleSearchRepo}
+        onKeyDown={handleSearchRepo} 
       />
       <IconButton
         type="submit"
         sx={{ position: "relative", right: "48px", fontSize: "18px", color: "rgb(87, 96, 106)" }}
         aria-label="search"
+
         onClick={handleSearchRepo}
       >
         <BsSlashSquare />
