@@ -1,6 +1,7 @@
 import { useRouter } from "next/dist/client/router";
 import useFetchRepo from "../../../../hooks/use-fetchUser";
 import FileList from "../../../../components/FileList/FileList";
+import NavBar from "../../../../components/NavBar/NavBar";
 
 export default function DisplayFileStructure() {
   const router = useRouter();
@@ -15,7 +16,11 @@ export default function DisplayFileStructure() {
   const { data, isLoading, isError } = useFetchRepo(
     `https://api.github.com/repos/${user}/${repo}/contents${pathTree}?ref=main`
   );
+
   return (
-    <div>{isLoading ? <div>LOADING</div> : <FileList fileList={data} />}</div>
+    <div>
+      <NavBar />
+      {isLoading ? <div> LOADING </div> : <FileList fileList={data} />}
+    </div>
   );
 }
