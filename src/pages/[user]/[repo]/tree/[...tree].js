@@ -1,5 +1,5 @@
 import { useRouter } from "next/dist/client/router";
-import useFetchRepo from "../../../../hooks/use-fetchUser";
+import useFetch from "../../../../hooks/use-fetch";
 import FileList from "../../../../components/FileList/FileList";
 import NavBar from "../../../../components/NavBar/NavBar";
 
@@ -13,7 +13,7 @@ export default function DisplayFileStructure() {
       }, "")
     : undefined;
 
-  const { data, isLoading, isError } = useFetchRepo(
+  const { data, isLoading, isError } = useFetch(
     `https://api.github.com/repos/${user}/${repo}/contents${pathTree}?ref=main`
   );
 

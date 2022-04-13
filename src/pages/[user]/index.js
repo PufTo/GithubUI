@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import useFetchRepo from "../../hooks/use-fetchUser";
+import useFetch from "../../hooks/use-fetch";
 import RepoList from "../../components/RepoList/RepoList";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -14,7 +14,9 @@ export default function UserRepo() {
 
   const username = router.query.user;
 
-  const { data, isLoading, isError } = useFetchRepo(`https://api.github.com/users/${username}/repos`);
+  const { data, isLoading, isError } = useFetch(
+    `https://api.github.com/users/${username}/repos`
+  );
 
   const [repoList, setRepoList] = useState([]);
 
@@ -54,7 +56,11 @@ export default function UserRepo() {
         placeholder={"Type here to filter by name"}
         onChange={handleInputChange}
       ></input>
-      {isLoading ? <div> LOADING </div> : <RepoList repoList={repoList} filterQuery={filterQuery} />}
+      {isLoading ? (
+        <div> LOADING </div>
+      ) : (
+        <RepoList repoList={repoList} filterQuery={filterQuery} />
+      )}
     </div>
   );
 }
