@@ -4,12 +4,12 @@ import { useRef } from "react";
 import { useState } from "react";
 import styles from "../styles/Home.module.css";
 
-import TextField from "@mui/material/TextField";
-import Grid from "@mui/material/Grid";
-import Button from "@mui/material/Button";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import theme from "./_app";
-import Image from "next/image";
+import TextField from '@mui/material/TextField';
+import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import Image from 'next/image';
+
 
 export default function Home() {
   const inputRef = useRef();
@@ -48,10 +48,10 @@ export default function Home() {
       >
         <Grid item>
           <Image
-            src="/github.png"
-            alt="Git hub logo"
-            width={600}
-            height={200}
+            src='/github.gif'
+            alt='Git hub logo'
+            width={330}
+            height={310}
           />
 
           <Grid />

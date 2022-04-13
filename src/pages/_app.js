@@ -1,10 +1,12 @@
 import { Provider } from "react-redux";
 import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
+import { ThemeProvider } from '@emotion/react';
 
-import "../styles/globals.css";
 import store from "../state/index.js";
 import { useStore } from "../state/index.js";
+import "../styles/globals.css";
+import { theme } from '../styles/theme';
 
 let persistor = persistStore(store);
 
@@ -18,7 +20,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <PersistGate loading={<div>loading</div>} persistor={persistor}>
-        <Component {...pageProps} />
+        <ThemeProvider theme={theme}>
+          <Component {...pageProps} />
+         </ThemeProvider>
       </PersistGate>
     </Provider>
   );
