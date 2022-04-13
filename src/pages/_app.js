@@ -12,10 +12,6 @@ let persistor = persistStore(store);
 
 function MyApp({ Component, pageProps }) {
   console.log("creating store");
-  // const store = useStore(pageProps.initialReduxState);
-  // const persistor = persistStore(store, {}, function () {
-  //   persistor.persist();
-  // });
 
   return (
     <Provider store={store}>
