@@ -1,5 +1,6 @@
 import React from "react";
 import { useRouter } from "next/dist/client/router";
+import ListItem from '@mui/material/ListItem';
 
 export default function FileItem(props) {
   const router = useRouter();
@@ -24,5 +25,5 @@ export default function FileItem(props) {
     }
   };
 
-  return <li onClick={handleShowFileDetails}>{name}</li>;
+  return <ListItem onClick={handleShowFileDetails}>{name}</ListItem>;
 }
