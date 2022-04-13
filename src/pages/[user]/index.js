@@ -3,7 +3,6 @@ import useFetchRepo from "../../hooks/use-fetchUser";
 import RepoList from "../../components/RepoList/RepoList";
 import { useState } from "react";
 import { useEffect } from "react";
-
 import Navbar from "../../components/NavBar/NavBar";
 
 const filterRepos = (repoList, query) => {
@@ -14,7 +13,6 @@ export default function UserRepo() {
   const router = useRouter();
 
   const username = router.query.user;
-  console.log(username);
 
   const { data, isLoading, isError } = useFetchRepo(`https://api.github.com/users/${username}/repos`);
 
@@ -41,7 +39,7 @@ export default function UserRepo() {
     if (successfulFetch) {
       setRepoList(filterRepos(data, filterQuery));
     }
-  }, [filterQuery, isLoading, isError,username]);
+  }, [filterQuery, isLoading, isError, username]);
 
   const handleInputChange = (event) => {
     setInputFilterValue(event.target.value);
@@ -49,14 +47,14 @@ export default function UserRepo() {
 
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <input
         autoComplete="off"
         id="filterInput"
         placeholder={"Type here to filter by name"}
         onChange={handleInputChange}
-      ></input>{" "}
-      {isLoading ? <div> LOADING </div> : <RepoList repoList={repoList} />}{" "}
+      ></input>
+      {isLoading ? <div> LOADING </div> : <RepoList repoList={repoList} filterQuery={filterQuery} />}
     </div>
   );
 }

@@ -41,10 +41,12 @@ export default function Home() {
       >
         <Grid item>
           <Image
+
             src='/github.gif'
             alt='Git hub logo'
             width={300}
             height={350}
+
           />
 
           <Grid />
