@@ -2,6 +2,9 @@
   padding: 0 2rem;
 }
 
+.homeContainer {
+  background-image: linear-gradient(rgb(236, 199, 157), rgb(141, 93, 35))
+}
 .main {
   min-height: 100vh;
   padding: 4rem 0;
