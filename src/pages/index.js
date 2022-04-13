@@ -11,7 +11,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import theme from "./_app";
 import Image from "next/image";
 
-const Home = () => {
+export default function Home() {
   const inputRef = useRef();
   const route = useRouter();
 
@@ -101,6 +101,4 @@ const Home = () => {
       </Grid>
     </div>
   );
-};
-
-export default withAuth(Home);
+}

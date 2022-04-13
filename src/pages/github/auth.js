@@ -1,41 +1,84 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
+import { useDispatch } from "react-redux";
+import { userActions } from "../../state/user";
 
-const useFetch = (url, options) => {
+const useFetchUserData = (code) => {
   const [status, setStatus] = useState("idle");
-  const [data, setData] = useState([]);
+  const [userState, setUserState] = useState([]);
 
   useEffect(() => {
-    if (url.includes("undefined")) return;
+    if (!code) return;
 
     const fetchData = async () => {
-      console.log("fetching", url);
+      // console.log("fetching", url);
       setStatus("fetching");
-      const response = await fetch(url, options);
-      console.log(response);
-      const data = await response.json();
-      setData(data);
-      console.log(data);
-      setStatus("fetched");
+      try {
+        const tokenResponse = await fetch(`/api/auth?code=${code}`, {
+          method: "POST",
+          headers: new Headers({
+            "Content-Type": "application/json",
+          }),
+        });
+
+        const tokenData = await tokenResponse.json();
+
+        // console.log(tokenData.data);
+        // console.log(tokenData.access_token);
+        const { access_token } = tokenData.data;
+
+        // console.log(access_token);
+
+        const userResponse = await fetch("https://api.github.com/user", {
+          method: "GET",
+          headers: new Headers({
+            "Content-Type": "application/json",
+            Authorization: "token " + access_token,
+          }),
+        });
+
+        const userData = await userResponse.json();
+
+        //console.log(userData);
+
+        const userStateInfo = {
+          profileImage: userData.avatar_url,
+          username: userData.login,
+          name: userData.name,
+        };
+
+        console.log(userStateInfo);
+
+        setUserState(userStateInfo);
+        setStatus("fetched");
+      } catch {}
     };
 
     fetchData();
-  }, [url]);
+  }, [code]);
 
-  return { status, data };
+  return { status, userState };
 };
 
 export default function auth() {
   const route = useRouter();
   const { code } = route.query;
-  const { data } = useFetch(`/api/hello?code=${code}`, {
-    method: "POST",
-    headers: new Headers({
-      "Content-Type": "application/json",
-    }),
-  });
+  const { userState, status } = useFetchUserData(code);
+  const dispatch = useDispatch();
 
-  //   console.log(data);
+  useEffect(() => {
+    if (status === "fetched") {
+      //login
+      dispatch(userActions.login(userState));
+      route.replace("/profile");
+    }
+  }, [userState, status]);
 
-  return <div>{code}</div>;
+  return (
+    <Box sx={{ display: "flex" }}>
+      <CircularProgress />
+    </Box>
+  );
 }

@@ -10,21 +10,20 @@ import { userActions } from "../../state/user";
 const Login = () => {
   const route = useRouter();
   const isLoggedIn = useSelector((state) => state.isAuthenticated);
+  const profileImage = useSelector((state) => state.profileImage);
   const dispatch = useDispatch();
 
   const handleLogin = () => {
-    // move to server??
-    // console.log("login");
-    console.log(isLoggedIn);
-    dispatch(userActions.login());
-    // route.push(
-    //   "https://github.com/login/oauth/authorize?client_id=ee75ebfda6802886b0fe"
-    // );
+    route.push(
+      "https://github.com/login/oauth/authorize?client_id=ee75ebfda6802886b0fe"
+    );
   };
 
   const handleLogout = () => {
     dispatch(userActions.logout());
   };
+
+  console.log(isLoggedIn);
 
   return (
     <Box style={{ display: "flex ", alignItems: "center", marginLeft: "auto" }}>
@@ -32,7 +31,7 @@ const Login = () => {
         <>
           <Avatar
             alt=""
-            src=""
+            src={profileImage}
             style={{ height: "32px", width: "32px", marginRight: "8px" }}
           />
 
