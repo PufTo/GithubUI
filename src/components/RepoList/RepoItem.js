@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import Highlighter from "react-highlight-words";
+import Highlighter from 'react-highlight-words';
 
 export default function RepoItem(props) {
   const { name, filterQuery } = props;

@@ -6,7 +6,6 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import theme from './_app';
 import Image from 'next/image';
 
 export default function Home() {
@@ -41,12 +40,10 @@ export default function Home() {
       >
         <Grid item>
           <Image
-
             src='/github.gif'
             alt='Git hub logo'
-            width={300}
-            height={350}
-
+            width={330}
+            height={310}
           />
 
           <Grid />
