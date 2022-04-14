@@ -4,6 +4,9 @@ import RepoList from "../../components/RepoList/RepoList";
 import { useState } from "react";
 import { useEffect } from "react";
 import Navbar from "../../components/NavBar/NavBar";
+import TextField from "@mui/material/TextField";
+import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
 
 const filterRepos = (repoList, query) => {
   return repoList.filter((repo) => repo.name.toLowerCase().includes(query));
@@ -48,12 +51,43 @@ export default function UserRepo() {
   return (
     <div>
       <Navbar />
-      <input
-        autoComplete="off"
-        id="filterInput"
-        placeholder={"Type here to filter by name"}
-        onChange={handleInputChange}
-      ></input>
+
+      <Container>
+        <Box sx={{ width: "100%" }}>
+          <TextField
+            id="searchForUser"
+            label="Type here to filter by name"
+            variant="outlined"
+            margin="normal"
+            sx={{
+              mt: 7,
+              mb: 10,
+              width: "100%",
+              height: "35px",
+              "& label.Mui-focused": {
+                color: "black",
+              },
+              "& .MuiInput-underline:after": {
+                borderBottomColor: "black",
+              },
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "black",
+                },
+                "&:hover fieldset": {
+                  borderColor: "black",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "black",
+                },
+              },
+            }}
+            autoComplete="off"
+            placeholder={"Type here to filter by name"}
+            onChange={handleInputChange}
+          />
+        </Box>
+      </Container>
       {isLoading ? (
         <div> LOADING </div>
       ) : (

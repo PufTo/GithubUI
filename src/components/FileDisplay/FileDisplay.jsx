@@ -47,11 +47,11 @@ export default function FileDisplay(props) {
 
   const fileType = supportedFileType(fileName);
 
-  if (fileType === "image") {
+  if (fileType === 'image') {
     return <ImageDisplay content={fileContent} />;
   }
 
-  if (fileType === "text") {
+  if (fileType === 'text') {
     return <TextFileDisplay content={fileContent} />;
   }
 
