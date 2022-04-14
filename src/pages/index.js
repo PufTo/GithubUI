@@ -4,12 +4,11 @@ import { useRef } from "react";
 import { useState } from "react";
 import styles from "../styles/Home.module.css";
 
-import TextField from '@mui/material/TextField';
-import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import Image from 'next/image';
-
+import TextField from "@mui/material/TextField";
+import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import Image from "next/image";
 
 export default function Home() {
   const inputRef = useRef();
@@ -17,7 +16,7 @@ export default function Home() {
 
   const [user, setUser] = useState(false);
 
-  console.log(route);
+  // console.log(route);
 
   const handleSearchRepo = () => {
     //add some kind of validation
@@ -29,6 +28,8 @@ export default function Home() {
       handleSearchRepo();
     }
   };
+
+  console.log("env var", process.env.NEXT_PUBLIC_TEST);
 
   return (
     <div className={styles.homeContainer}>
@@ -48,8 +49,8 @@ export default function Home() {
       >
         <Grid item>
           <Image
-            src='/github.gif'
-            alt='Git hub logo'
+            src="/github.gif"
+            alt="Git hub logo"
             width={330}
             height={310}
           />
@@ -58,6 +59,7 @@ export default function Home() {
         </Grid>
         <Grid item>
           <TextField
+            inputProps={{ "data-testid": "test-homepage-input" }}
             id="searchForUser"
             label="Search for GitHub user"
             variant="outlined"
@@ -89,6 +91,7 @@ export default function Home() {
         </Grid>
         <Grid item>
           <Button
+            data-testid="test-homepage-button"
             variant="contained"
             color="primary"
             size="medium"

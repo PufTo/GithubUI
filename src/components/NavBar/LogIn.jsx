@@ -14,8 +14,9 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const handleLogin = () => {
+    console.log();
     route.push(
-      "https://github.com/login/oauth/authorize?client_id=ee75ebfda6802886b0fe"
+      `https://github.com/login/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_APP_ID}`
     );
   };
 

@@ -26,12 +26,10 @@ export default function UserRepo() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      console.log("sorting");
       setFilterQuery(inputFilterValue);
     }, 600);
 
     return () => {
-      console.log("reset");
       clearTimeout(timer);
     };
   }, [inputFilterValue]);

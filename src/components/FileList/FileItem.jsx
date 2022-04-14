@@ -19,7 +19,6 @@ export default function FileItem(props) {
       router.push(`/${user}/${repo}/blob${treePath}/${name}`);
     }
     if (type === "dir") {
-      console.log(`/${user}/${repo}/tree${treePath}/${name}`);
       router.push(`/${user}/${repo}/tree${treePath}/${name}`);
     }
   };
