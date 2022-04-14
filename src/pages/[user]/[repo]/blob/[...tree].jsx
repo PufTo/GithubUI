@@ -16,11 +16,10 @@ export default function DisplayFileContent() {
   const { data, isLoading, isError } = useFetchRepo(
     `https://api.github.com/repos/${user}/${repo}/contents${pathTree}?ref=main`
   );
-
+  console.log("fffffffff",data);
   return (
     <>
-      <NavBar />
-      {isLoading ? <div> LOADING </div> : <FileDisplay fileName={data.name} fileContent={data.content} />}
+      <NavBar /> {isLoading ? <div> LOADING </div> : <FileDisplay fileName={data.name} fileContent={data.content} />}{" "}
     </>
   );
 }
