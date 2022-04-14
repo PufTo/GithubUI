@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import useFetchRepo from "../../hooks/use-fetchUser";
+import useFetch from "../../hooks/use-fetch";
 import RepoList from "../../components/RepoList/RepoList";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -16,8 +16,8 @@ export default function UserRepo() {
   const router = useRouter();
 
   const username = router.query.user;
-
-  const { data, isLoading, isError } = useFetchRepo(
+  
+  const { data, isLoading, isError } = useFetch(
     `https://api.github.com/users/${username}/repos`
   );
 
@@ -53,6 +53,7 @@ export default function UserRepo() {
   return (
     <div>
       <Navbar />
+
       <Container>
         <Box sx={{ width: '100%' }}>
           <TextField
