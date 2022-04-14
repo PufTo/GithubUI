@@ -9,7 +9,7 @@ export default function RepoItem(props) {
   const handleShowRepoDetails = () => {
     router.push(`${router.asPath}/${name}`);
   };
-  console.log(Highlighter);
+
   return (
     <li onClick={handleShowRepoDetails}>
       <Highlighter
