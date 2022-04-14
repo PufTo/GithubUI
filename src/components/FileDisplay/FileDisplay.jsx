@@ -45,13 +45,15 @@ const supportedFileType = (filename) => {
 export default function FileDisplay(props) {
   const { fileName, fileContent } = props;
 
+  console.log("FILE PROPSSS ----", fileName, fileContent);
+
   const fileType = supportedFileType(fileName);
 
-  if (fileType === 'image') {
+  if (fileType === "image") {
     return <ImageDisplay content={fileContent} />;
   }
 
-  if (fileType === 'text') {
+  if (fileType === "text") {
     return <TextFileDisplay content={fileContent} />;
   }
 

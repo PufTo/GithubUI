@@ -5,15 +5,12 @@ import { ThemeProvider } from "@emotion/react";
 import CssBaseline from "@mui/material/CssBaseline";
 
 import store from "../state/index.js";
-import { useStore } from "../state/index.js";
 import "../styles/globals.css";
 import { theme } from "../styles/theme";
 
 let persistor = persistStore(store);
 
 function MyApp({ Component, pageProps }) {
-  console.log("creating store");
-
   return (
     <Provider store={store}>
       <PersistGate loading={<div>loading</div>} persistor={persistor}>

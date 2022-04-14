@@ -1,15 +1,12 @@
 import React from "react";
 import { useRouter } from "next/dist/client/router";
 
-
 export default function FileItem(props) {
   const router = useRouter();
-  //   console.log(props);
   const { name, type } = props.file;
   const { user, repo, tree } = router.query;
-  const handleShowFileDetails = () => {
-    console.log(router);
 
+  const handleShowFileDetails = () => {
     const treePath = tree
       ? tree.reduce((acc, segment) => {
           return acc + "/" + segment;

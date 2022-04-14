@@ -7,8 +7,9 @@ import Navbar from "../../components/NavBar/NavBar";
 import TextField from "@mui/material/TextField";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
+import Error from "next/error";
 
-const filterRepos = (repoList, query) => {
+const filterRepos = (repoList, query = "") => {
   return repoList.filter((repo) => repo.name.toLowerCase().includes(query));
 };
 
@@ -47,6 +48,10 @@ export default function UserRepo() {
   const handleInputChange = (event) => {
     setInputFilterValue(event.target.value);
   };
+
+  if (isError) {
+    return <Error statusCode={isError.status} title={isError.message} />;
+  }
 
   return (
     <div>

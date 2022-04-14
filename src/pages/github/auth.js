@@ -24,7 +24,6 @@ const useFetchUserData = (code) => {
 
         const tokenData = await tokenResponse.json();
 
-        console.log(tokenData.access_token);
         const { access_token } = tokenData.data;
 
         const userResponse = await fetch("https://api.github.com/user", {
@@ -41,6 +40,7 @@ const useFetchUserData = (code) => {
           profileImage: userData.avatar_url,
           username: userData.login,
           name: userData.name,
+          token: access_token,
         };
 
         console.log(userStateInfo);

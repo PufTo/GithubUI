@@ -20,11 +20,3 @@ const store = configureStore({
 });
 
 export default store;
-
-function makeStore(initialState = exampleInitialState) {
-  return createStore(
-    persistedReducer,
-    initialState,
-    composeWithDevTools(applyMiddleware())
-  );
-}

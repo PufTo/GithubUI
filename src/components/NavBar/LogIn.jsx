@@ -14,7 +14,6 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const handleLogin = () => {
-    console.log();
     route.push(
       `https://github.com/login/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_APP_ID}`
     );
@@ -23,8 +22,6 @@ const Login = () => {
   const handleLogout = () => {
     dispatch(userActions.logout());
   };
-
-  console.log(isLoggedIn);
 
   return (
     <Box style={{ display: "flex ", alignItems: "center", marginLeft: "auto" }}>

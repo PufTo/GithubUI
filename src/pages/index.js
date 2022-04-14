@@ -16,8 +16,6 @@ export default function Home() {
 
   const [user, setUser] = useState(false);
 
-  // console.log(route);
-
   const handleSearchRepo = () => {
     //add some kind of validation
     route.push(`/${inputRef.current.value}`);
@@ -28,8 +26,6 @@ export default function Home() {
       handleSearchRepo();
     }
   };
-
-  console.log("env var", process.env.NEXT_PUBLIC_TEST);
 
   return (
     <div className={styles.homeContainer}>
