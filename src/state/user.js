@@ -5,6 +5,7 @@ const initialAuthState = {
   profileImage: "",
   username: "",
   name: "",
+  token: "",
 };
 
 const userSlice = createSlice({
@@ -12,18 +13,20 @@ const userSlice = createSlice({
   initialState: initialAuthState,
   reducers: {
     login(state, actions) {
-      const { profileImage, username, name } = actions.payload;
+      const { profileImage, username, name, token } = actions.payload;
 
       state.isAuthenticated = true;
       state.profileImage = profileImage;
       state.username = username;
       state.name = name;
+      state.token = token;
     },
     logout(state) {
       state.isAuthenticated = false;
       state.profileImage = "";
       state.username = "";
       state.name = "";
+      state.token = "";
     },
   },
 });

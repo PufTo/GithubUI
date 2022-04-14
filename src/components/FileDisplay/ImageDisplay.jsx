@@ -1,5 +1,5 @@
 import React from "react";
-import Image from 'next/image'
+import Image from "next/image";
 
 const imgForm = (rawImageDataBase64) => {
   return "data:image/png;base64," + rawImageDataBase64;
@@ -7,5 +7,5 @@ const imgForm = (rawImageDataBase64) => {
 
 export default function ImageDisplay(props) {
   const { content } = props;
-  return <Image src={imgForm(content)} alt="Image" />;
+  return <img src={imgForm(content)} alt="Image" />;
 }
