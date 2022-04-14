@@ -14,7 +14,7 @@ export default function DisplayFileContent() {
     : undefined;
 
   const { data, isLoading, isError } = useFetch(
-    `https://api.github.com/repos/${user}/${repo}/contents${pathTree}?ref=main`
+    `https://api.github.com/repos/${user}/${repo}/contents${pathTree}`
   );
   console.log("fffffffff",data);
   return (

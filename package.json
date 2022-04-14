@@ -18,6 +18,7 @@
     "@mui/material": "^5.6.0",
     "@react-icons/all-files": "^4.1.0",
     "@reduxjs/toolkit": "^1.8.1",
+    "material-file-icons": "^2.2.0",
     "mui5-search": "^1.0.12",
     "next": "^12.1.4",
     "react": "^18.0.0",
@@ -27,7 +28,8 @@
     "react-redux": "^7.2.8",
     "redux": "^4.1.2",
     "redux-persist": "^6.0.0",
-    "swr": "^1.2.2"
+    "swr": "^1.2.2",
+    "vscode-icons-js": "^11.6.1"
   },
   "devDependencies": {
     "eslint": "8.13.0",
