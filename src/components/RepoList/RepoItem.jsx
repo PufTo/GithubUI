@@ -10,10 +10,6 @@ import LockIcon from "@mui/icons-material/Lock";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import CircleIcon from "@mui/icons-material/Circle";
 
-RepoItem.defaultProps = {
-  filterQuery: "",
-};
-
 export default function RepoItem(props) {
   const { filterQuery, repo } = props;
   const { name, open_issues, watchers, language, visibility } = repo;

@@ -4,6 +4,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 import { useDispatch } from "react-redux";
 import { userActions } from "../../state/user";
+import { Container } from "@mui/material";
 
 const useFetchUserData = (code) => {
   const [status, setStatus] = useState("idle");
@@ -25,6 +26,8 @@ const useFetchUserData = (code) => {
         const tokenData = await tokenResponse.json();
 
         const { access_token } = tokenData.data;
+
+        console.log(access_token);
 
         const userResponse = await fetch("https://api.github.com/user", {
           method: "GET",
@@ -71,8 +74,15 @@ export default function auth() {
   }, [userState, status]);
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Container
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "80vh",
+      }}
+    >
       <CircularProgress />
-    </Box>
+    </Container>
   );
 }

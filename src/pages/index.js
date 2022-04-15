@@ -41,7 +41,7 @@ export default function Home() {
         direction="column"
         alignItems="center"
         justifyContent="center"
-        style={{ minHeight: "100vh" }}
+        style={{ height: "100vh" }}
       >
         <Grid item>
           <Image

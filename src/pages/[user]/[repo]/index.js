@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import useFetch from "../../../hooks/use-fetch";
 import FileList from "../../../components/FileList/FileList";
-import NavBar from "../../../components/NavBar/NavBar";
+
 import Error from "next/dist/pages/_error";
 
 export default function RepoDetails() {
@@ -16,10 +16,5 @@ export default function RepoDetails() {
     return <Error statusCode={isError.status} title={isError.message} />;
   }
 
-  return (
-    <div>
-      <NavBar />
-      {isLoading ? <div> LOADING </div> : <FileList fileList={data} />}
-    </div>
-  );
+  return <>{isLoading ? <div> LOADING </div> : <FileList fileList={data} />}</>;
 }

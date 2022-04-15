@@ -1,7 +1,6 @@
 import { useRouter } from "next/dist/client/router";
 import useFetch from "../../../../hooks/use-fetch";
 import FileDisplay from "../../../../components/FileDisplay/FileDisplay";
-import NavBar from "../../../../components/NavBar/NavBar";
 import { useSelector } from "react-redux";
 import { useMemo } from "react";
 import Error from "next/dist/pages/_error";
@@ -43,7 +42,6 @@ export default function DisplayFileContent() {
 
   return (
     <>
-      <NavBar />
       {isLoading ? (
         <div> LOADING </div>
       ) : (

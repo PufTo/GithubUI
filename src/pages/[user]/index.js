@@ -8,6 +8,7 @@ import TextField from "@mui/material/TextField";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Error from "next/error";
+import { CircularProgress } from "@mui/material";
 
 const filterRepos = (repoList, query = "") => {
   return repoList.filter((repo) => repo.name.toLowerCase().includes(query));
@@ -55,8 +56,6 @@ export default function UserRepo() {
 
   return (
     <div>
-      <Navbar />
-
       <Container>
         <Box sx={{ width: "100%" }}>
           <TextField
@@ -94,7 +93,15 @@ export default function UserRepo() {
         </Box>
       </Container>
       {isLoading ? (
-        <div> LOADING </div>
+        <Container
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <CircularProgress />
+        </Container>
       ) : (
         <RepoList repoList={repoList} filterQuery={filterQuery} />
       )}
