@@ -34,9 +34,9 @@ export default function useFetch(url, options = {}) {
     }
   );
 
-  return {
-    data: data,
-    isLoading: !error && !data,
-    isError: error,
-  };
+    return {
+        data: data,
+        isLoading: !error && !data,
+        isError: error,
+    };
 }

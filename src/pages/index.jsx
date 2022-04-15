@@ -2,12 +2,14 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useRef } from "react";
 import { useState } from "react";
-import styles from '../styles/Home.module.css';
+import styles from "../styles/Home.module.css";
+
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Image from 'next/image';
+
 
 export default function Home() {
   const inputRef = useRef();
@@ -51,6 +53,7 @@ export default function Home() {
             width={330}
             height={310}
           />
+
           <Grid />
         </Grid>
         <Grid item>
@@ -86,9 +89,9 @@ export default function Home() {
         </Grid>
         <Grid item>
           <Button
-            variant='contained'
-            color='primary'
-            size='medium'
+            variant="contained"
+            color="primary"
+            size="medium"
             onClick={handleSearchRepo}
           >
             <GitHubIcon />

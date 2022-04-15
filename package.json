@@ -15,10 +15,11 @@
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
+    "@iconscout/react-unicons": "^1.1.6",
     "@mui/material": "^5.6.0",
     "@react-icons/all-files": "^4.1.0",
     "@reduxjs/toolkit": "^1.8.1",
-    "github-colors": "^2.2.20",
+    "material-file-icons": "^2.2.0",
     "mui5-search": "^1.0.12",
     "next": "^12.1.4",
     "react": "^18.0.0",
@@ -29,7 +30,8 @@
     "react-redux": "^7.2.8",
     "redux": "^4.1.2",
     "redux-persist": "^6.0.0",
-    "swr": "^1.2.2"
+    "swr": "^1.2.2",
+    "vscode-icons-js": "^11.6.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",

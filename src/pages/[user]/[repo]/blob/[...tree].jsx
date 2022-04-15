@@ -44,11 +44,7 @@ export default function DisplayFileContent() {
   return (
     <>
       <NavBar />
-      {isLoading ? (
-        <div> LOADING </div>
-      ) : (
-        <FileDisplay fileName={data.name} fileContent={data.content} />
-      )}
+      {isLoading ? <div> LOADING </div> : <FileDisplay fileName={data.name} fileContent={data.content} />}
     </>
   );
 }
