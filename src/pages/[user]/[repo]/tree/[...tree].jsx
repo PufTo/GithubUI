@@ -1,10 +1,10 @@
 import { useRouter } from "next/dist/client/router";
 import useFetch from "../../../../hooks/use-fetch";
 import FileList from "../../../../components/FileList/FileList";
-import NavBar from "../../../../components/NavBar/NavBar";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import Error from "next/dist/pages/_error";
+import { CircularProgress, Container } from "@mui/material";
 
 export default function DisplayFileStructure() {
   const router = useRouter();
@@ -43,8 +43,19 @@ export default function DisplayFileStructure() {
 
   return (
     <div>
-      <NavBar />
-      {isLoading ? <div> LOADING </div> : <FileList fileList={data} />}
+      {isLoading ? (
+        <Container
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <CircularProgress />
+        </Container>
+      ) : (
+        <FileList fileList={data} />
+      )}
     </div>
   );
 }

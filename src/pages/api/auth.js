@@ -19,5 +19,26 @@ export default async function handler(req, res) {
     res.status(200).json(finalValue);
   }
 
-  res.status(200).json({ name: "John Doe" });
+  if (req.method === "DELETE") {
+    const { token } = req.query;
+    const response = await fetch(
+      `https://api.github.com/applications/${process.env.NEXT_PUBLIC_APP_ID}/grant`,
+      {
+        method: "DELETE",
+        headers: new Headers({
+          Accept: "application/json",
+          Authorization:
+            "Basic " +
+            Buffer.from(
+              process.env.NEXT_PUBLIC_APP_ID + ":" + process.env.APP_KEY
+            ).toString("base64"),
+        }),
+        body: JSON.stringify({ access_token: token }),
+      }
+    );
+    const message = response.json();
+    res.status(200).json(message);
+  }
+
+  res.status(404).json({ message: "Request not found" });
 }

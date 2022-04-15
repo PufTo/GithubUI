@@ -28,6 +28,9 @@ const userSlice = createSlice({
       state.name = "";
       state.token = "";
     },
+    update(state, actions) {
+      state.name = actions.payload;
+    },
   },
 });
 

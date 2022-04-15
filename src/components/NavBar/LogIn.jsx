@@ -11,16 +11,21 @@ const Login = () => {
   const route = useRouter();
   const isLoggedIn = useSelector((state) => state.isAuthenticated);
   const profileImage = useSelector((state) => state.profileImage);
+  const token = useSelector((state) => state.token);
   const dispatch = useDispatch();
 
   const handleLogin = () => {
     route.push(
-      `https://github.com/login/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_APP_ID}`
+      `https://github.com/login/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_APP_ID}&scope=user`
     );
   };
 
   const handleLogout = () => {
-    dispatch(userActions.logout());
+    route.push(`/github/logout?token=${token}`);
+  };
+
+  const handleProfileRoute = () => {
+    route.push("/profile");
   };
 
   return (
@@ -31,6 +36,8 @@ const Login = () => {
             alt=""
             src={profileImage}
             style={{ height: "32px", width: "32px", marginRight: "8px" }}
+            onClick={handleProfileRoute}
+            sx={{}}
           />
 
           <Button
