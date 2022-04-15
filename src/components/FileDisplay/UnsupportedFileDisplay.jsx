@@ -1,9 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-
-export default function UnsupportedFileDisplay() {
-  return <div>UnsupportedFileDisplay</div>;
-=======
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -55,5 +50,4 @@ export default function UnsupportedFileDisplay(props) {
       </Grid>
     </Container>
   );
->>>>>>> main
 }

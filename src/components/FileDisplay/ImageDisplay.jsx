@@ -1,10 +1,5 @@
 import React from "react";
 import Image from 'next/image'
-<<<<<<< HEAD
-
-const imgForm = (rawImageDataBase64) => {
-  return "data:image/png;base64," + rawImageDataBase64;
-=======
 import { Container } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
@@ -13,14 +8,10 @@ import Typography from '@mui/material/Typography';
 
 const imgForm = rawImageDataBase64 => {
   return 'data:image/png;base64,' + rawImageDataBase64;
->>>>>>> main
 };
 
 export default function ImageDisplay(props) {
   const { content } = props;
-<<<<<<< HEAD
-  return <Image src={imgForm(content)} alt="Image" />;
-=======
   const { fileName } = props;
 
   return (
@@ -57,5 +48,4 @@ export default function ImageDisplay(props) {
       </Grid>
     </Container>
   );
->>>>>>> main
 }

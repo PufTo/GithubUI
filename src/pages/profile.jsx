@@ -7,24 +7,18 @@ import useFetch from "../hooks/use-fetch";
 export default function profile() {
   const profileImage = useSelector((state) => state.profileImage);
   const username = useSelector((state) => state.username);
-  const { data, isLoading, isError } = useFetch(
-    `https://api.github.com/users/${username}/repos`
-  );
+  const { data, isLoading, isError } = useFetch(`https://api.github.com/users/${username}/repos`);
 
   return (
     <>
       <NavBar />
       <Container sx={{ padding: "6rem" }}>
-        <Avatar
-          alt="Remy Sharp"
-          src={profileImage}
-          sx={{ width: "16rem", height: "auto" }}
-        />
+        <Avatar alt="Remy Sharp" src={profileImage} sx={{ width: "16rem", height: "auto" }} />
         {isLoading ? (
           <CircularProgress />
         ) : (
           // <RepoList repoList={repoList} filterQuery={filterQuery} />
-          <></>
+          <> </>
         )}
       </Container>
     </>

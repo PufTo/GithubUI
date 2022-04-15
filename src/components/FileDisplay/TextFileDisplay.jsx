@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-
-const decode64 = (string) => {
-  return Buffer.from(string, "base64");
-};
-
-export default function TextFileDisplay(props) {
-  const { content } = props;
-  return <textarea readOnly value={decode64(content)}></textarea>;
-=======
 import React from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useState } from 'react';
@@ -67,5 +56,4 @@ export default function TextFileDisplay(props) {
       ></textarea>
     </>
   );
->>>>>>> main
 }
