@@ -15,7 +15,7 @@ const Searchinput = () => {
       ? route.push(`/${e.target.value}`)
       : e.type === "click"
       ? route.push(`/${inputRef.current.value}`)
-      : console.log("Error")
+      : console.log("Error");
   };
 
   return (
@@ -32,15 +32,13 @@ const Searchinput = () => {
           fontSize: "14px",
         }}
         placeholder="Search or jump to..."
-
         inputProps={{ ref: inputRef }}
-        onKeyDown={handleSearchRepo} 
+        onKeyDown={handleSearchRepo}
       />
       <IconButton
         type="submit"
         sx={{ position: "relative", right: "48px", fontSize: "18px", color: "rgb(87, 96, 106)" }}
         aria-label="search"
-
         onClick={handleSearchRepo}
       >
         <BsSlashSquare />

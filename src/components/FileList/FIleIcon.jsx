@@ -1,0 +1,12 @@
+import { getIcon,getAllIcons } from 'material-file-icons';
+
+function FileIcon({ filename, style, className }) {
+    console.log(getIcon().name)
+  return <div 
+    style={style}
+    className={className}
+    dangerouslySetInnerHTML={{ __html: getIcon(filename).svg }}
+  />;
+}
+
+export default FileIcon;

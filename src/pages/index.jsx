@@ -16,6 +16,8 @@ export default function Home() {
 
   const [user, setUser] = useState(false);
 
+  console.log(route);
+
   const handleSearchRepo = () => {
     //add some kind of validation
     route.push(`/${inputRef.current.value}`);
@@ -55,7 +57,6 @@ export default function Home() {
         </Grid>
         <Grid item>
           <TextField
-            inputProps={{ "data-testid": "test-homepage-input" }}
             id="searchForUser"
             label="Search for GitHub user"
             variant="outlined"
@@ -87,7 +88,6 @@ export default function Home() {
         </Grid>
         <Grid item>
           <Button
-            data-testid="test-homepage-button"
             variant="contained"
             color="primary"
             size="medium"
