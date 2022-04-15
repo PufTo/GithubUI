@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { useMemo } from "react";
 import Error from "next/dist/pages/_error";
 import { CircularProgress, Container } from "@mui/material";
+import UnsupportedFileDisplay from "../../../../components/FileDisplay/UnsupportedFileDisplay";
 
 export default function DisplayFileContent() {
   const router = useRouter();
@@ -38,7 +39,8 @@ export default function DisplayFileContent() {
   );
 
   if (isError) {
-    return <Error statusCode={isError.status} title={isError.message} />;
+    // return <Error statusCode={isError.status} title={isError.message} />;
+    return <UnsupportedFileDisplay fileName={pathTree} />;
   }
 
   return (
@@ -49,6 +51,7 @@ export default function DisplayFileContent() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            height: "80vh",
           }}
         >
           <CircularProgress />

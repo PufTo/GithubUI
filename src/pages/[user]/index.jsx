@@ -3,7 +3,6 @@ import useFetch from "../../hooks/use-fetch";
 import RepoList from "../../components/RepoList/RepoList";
 import { useState } from "react";
 import { useEffect } from "react";
-import Navbar from "../../components/NavBar/NavBar";
 import TextField from "@mui/material/TextField";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
@@ -98,6 +97,7 @@ export default function UserRepo() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            height: "80vh",
           }}
         >
           <CircularProgress />
