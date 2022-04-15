@@ -43,7 +43,7 @@ export default function Home() {
         direction="column"
         alignItems="center"
         justifyContent="center"
-        style={{ height: "100vh" }}
+        style={{ height: "100vh", marginTop: "24px" }}
       >
         <Grid item>
           <Image

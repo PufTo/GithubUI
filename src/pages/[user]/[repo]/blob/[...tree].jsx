@@ -4,6 +4,7 @@ import FileDisplay from "../../../../components/FileDisplay/FileDisplay";
 import { useSelector } from "react-redux";
 import { useMemo } from "react";
 import Error from "next/dist/pages/_error";
+import { CircularProgress, Container } from "@mui/material";
 
 export default function DisplayFileContent() {
   const router = useRouter();
@@ -43,7 +44,15 @@ export default function DisplayFileContent() {
   return (
     <>
       {isLoading ? (
-        <div> LOADING </div>
+        <Container
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <CircularProgress />
+        </Container>
       ) : (
         <FileDisplay fileName={data.name} fileContent={data.content} />
       )}

@@ -4,6 +4,7 @@ import FileList from "../../../../components/FileList/FileList";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import Error from "next/dist/pages/_error";
+import { CircularProgress, Container } from "@mui/material";
 
 export default function DisplayFileStructure() {
   const router = useRouter();
@@ -41,6 +42,20 @@ export default function DisplayFileStructure() {
   }
 
   return (
-    <div>{isLoading ? <div> LOADING </div> : <FileList fileList={data} />}</div>
+    <div>
+      {isLoading ? (
+        <Container
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <CircularProgress />
+        </Container>
+      ) : (
+        <FileList fileList={data} />
+      )}
+    </div>
   );
 }

@@ -3,6 +3,7 @@ import useFetch from "../../../hooks/use-fetch";
 import FileList from "../../../components/FileList/FileList";
 
 import Error from "next/dist/pages/_error";
+import { CircularProgress, Container } from "@mui/material";
 
 export default function RepoDetails() {
   const router = useRouter();
@@ -16,5 +17,21 @@ export default function RepoDetails() {
     return <Error statusCode={isError.status} title={isError.message} />;
   }
 
-  return <>{isLoading ? <div> LOADING </div> : <FileList fileList={data} />}</>;
+  return (
+    <>
+      {isLoading ? (
+        <Container
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <CircularProgress />
+        </Container>
+      ) : (
+        <FileList fileList={data} />
+      )}
+    </>
+  );
 }

@@ -6,6 +6,7 @@ import store from "../state/index.js";
 import "../styles/globals.css";
 import { theme } from "../styles/theme";
 import "../styles/TextFile.css";
+import NavBar from "../components/NavBar/NavBar.jsx";
 
 let persistor = persistStore(store);
 

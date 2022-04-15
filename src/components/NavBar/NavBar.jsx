@@ -4,15 +4,22 @@ import { BsGithub } from "react-icons/bs";
 import { IconContext } from "react-icons";
 import Searchinput from "./SearchInput";
 import Login from "./LogIn";
-
+import { useRouter } from "next/router";
 
 export default function NavBar() {
+  const route = useRouter();
+
+  const handleClick = () => {
+    console.log("hfdashfjlkhdasljkfhkjldsaghfkjldsahl");
+    route.push("/");
+  };
+
   return (
     <AppBar
       sx={{
         display: "flex",
         flexDirection: "row",
-        position:"static",
+        position: "static",
         height: "62px",
         backgroundColor: " rgb(36,41,47)",
         alignItems: "center",
@@ -20,10 +27,10 @@ export default function NavBar() {
       }}
     >
       <IconContext.Provider value={{ color: "white", size: "32px" }}>
-        <BsGithub />
+        <BsGithub onClick={handleClick} />
       </IconContext.Provider>
       <Searchinput />
-      <Login/>
+      <Login />
     </AppBar>
   );
 }

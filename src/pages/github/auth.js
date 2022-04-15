@@ -50,7 +50,9 @@ const useFetchUserData = (code) => {
 
         setUserState(userStateInfo);
         setStatus("fetched");
-      } catch {}
+      } catch {
+        setStatus("error");
+      }
     };
 
     fetchData();
@@ -70,6 +72,10 @@ export default function auth() {
       //login
       dispatch(userActions.login(userState));
       route.replace("/profile");
+    }
+    if (status === "error") {
+      console.log(route.asPath);
+      route.replace("/");
     }
   }, [userState, status]);
 

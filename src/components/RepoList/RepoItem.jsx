@@ -9,15 +9,22 @@ import LockOpenIcon from "@mui/icons-material/LockOpen";
 import LockIcon from "@mui/icons-material/Lock";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import CircleIcon from "@mui/icons-material/Circle";
-import githubColors from '../../styles/githubColors.json';
+import githubColors from "../../styles/githubColors.json";
+import { useSelector } from "react-redux";
 
 export default function RepoItem(props) {
   const { filterQuery, repo } = props;
   const { name, open_issues, watchers, language, visibility } = repo;
   const router = useRouter();
+  const username = useSelector((state) => state.username);
 
   const handleShowRepoDetails = () => {
-    router.push(`${router.asPath}/${name}`);
+    const currentPath = router.asPath;
+    if (currentPath === "/profile") {
+      router.push(`${username}/${name}`);
+    } else {
+      router.push(`${router.asPath}/${name}`);
+    }
   };
 
   const capitalizeFirstLetter = (string) => {
@@ -47,28 +54,28 @@ export default function RepoItem(props) {
           },
         }}
       >
-        <Typography variant='h6' style={{ fontWeight: 600 }}>
+        <Typography variant="h6" style={{ fontWeight: 600 }}>
           <Highlighter
-            highlightClassName='YourHighlightClass'
+            highlightClassName="YourHighlightClass"
             searchWords={[filterQuery]}
             autoEscape={true}
             textToHighlight={repo.name}
           />
         </Typography>
         <Box sx={{ mb: 0 }}>
-          <Typography sx={{ mt: 1.5, mb: 0.2 }} color='text.secondary'>
+          <Typography sx={{ mt: 1.5, mb: 0.2 }} color="text.secondary">
             <CircleIcon
               sx={{ fontSize: 12, color: `${libraryColors[language]}`, mr: 1 }}
             />
             {language}
           </Typography>
-          <Typography color='text.secondary' sx={{ mb: 0.2 }}>
+          <Typography color="text.secondary" sx={{ mb: 0.2 }}>
             <RadioButtonCheckedIcon sx={{ fontSize: 10, mr: 1 }} />
             Issues:{open_issues}
           </Typography>
 
-          {visibility === 'public' ? (
-            <Typography color='text.secondary'>
+          {visibility === "public" ? (
+            <Typography color="text.secondary">
               <LockOpenIcon sx={{ fontSize: 13, mr: 0.8, mb: 0.2 }} />
               {capitalizeFirstLetter({ visibility })}
             </Typography>
