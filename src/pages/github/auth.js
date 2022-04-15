@@ -63,9 +63,13 @@ const useFetchUserData = (code) => {
 
 export default function auth() {
   const route = useRouter();
-  const { code } = route.query;
+  const { code, error } = route.query;
   const { userState, status } = useFetchUserData(code);
   const dispatch = useDispatch();
+
+  if (error) {
+    route.replace("/");
+  }
 
   useEffect(() => {
     if (status === "fetched") {
