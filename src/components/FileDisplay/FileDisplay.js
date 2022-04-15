@@ -7,6 +7,7 @@ import ImageDisplay from "./ImageDisplay";
 import TextFileDisplay from "./TextFileDisplay";
 import UnsupportedFileDisplay from "./UnsupportedFileDisplay";
 
+
 //Receives a file name and returns its extension, undefined is returned if no extension is found
 const getFileExtension = (fileName) => {
   if (!fileName.includes(".")) {
@@ -48,12 +49,12 @@ export default function FileDisplay(props) {
   const fileType = supportedFileType(fileName);
 
   if (fileType === 'image') {
-    return <ImageDisplay content={fileContent} />;
+    return <ImageDisplay content={fileContent} fileName={fileName} />;
   }
 
   if (fileType === 'text') {
-    return <TextFileDisplay content={fileContent} />;
+    return <TextFileDisplay content={fileContent} fileName={fileName} />;
   }
 
-  return <UnsupportedFileDisplay />;
+  return <UnsupportedFileDisplay fileName={fileName} />;
 }

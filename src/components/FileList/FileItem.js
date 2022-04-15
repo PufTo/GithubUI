@@ -7,19 +7,20 @@ export default function FileItem(props) {
   //   console.log(props);
   const { name, type } = props.file;
   const { user, repo, tree } = router.query;
+
   const handleShowFileDetails = () => {
     console.log(router);
 
     const treePath = tree
       ? tree.reduce((acc, segment) => {
-          return acc + "/" + segment;
-        }, "")
-      : "";
+          return acc + '/' + segment;
+        }, '')
+      : '';
 
-    if (type === "file") {
+    if (type === 'file') {
       router.push(`/${user}/${repo}/blob${treePath}/${name}`);
     }
-    if (type === "dir") {
+    if (type === 'dir') {
       console.log(`/${user}/${repo}/tree${treePath}/${name}`);
       router.push(`/${user}/${repo}/tree${treePath}/${name}`);
     }
