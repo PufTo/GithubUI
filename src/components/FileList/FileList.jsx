@@ -1,5 +1,6 @@
 import React from "react";
 import FileItem from "./FileItem";
+<<<<<<< HEAD
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import { Typography } from "@mui/material";
@@ -65,5 +66,17 @@ export default function FileList(props) {
         ))}
       </List>
     </Box>
+=======
+
+export default function FileList(props) {
+  const { fileList } = props;
+  console.log(fileList);
+  return (
+    <ul>
+      {fileList.map((file) => (
+        <FileItem key={file.name} file={file} />
+      ))}
+    </ul>
+>>>>>>> main
   );
 }
