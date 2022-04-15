@@ -1,12 +1,11 @@
 import { Provider } from "react-redux";
 import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
-import { ThemeProvider } from "@emotion/react";
-import CssBaseline from "@mui/material/CssBaseline";
-
-import store from "../state/index.js";
-import "../styles/globals.css";
-import { theme } from "../styles/theme";
+import { ThemeProvider } from '@emotion/react';
+import store from '../state/index.js';
+import '../styles/globals.css';
+import { theme } from '../styles/theme';
+import '../styles/TextFile.css';
 
 let persistor = persistStore(store);
 

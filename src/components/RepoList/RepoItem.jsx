@@ -9,6 +9,7 @@ import LockOpenIcon from "@mui/icons-material/LockOpen";
 import LockIcon from "@mui/icons-material/Lock";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import CircleIcon from "@mui/icons-material/Circle";
+import githubColors from '../../styles/githubColors.json';
 
 RepoItem.defaultProps = {
   filterQuery: "",
@@ -26,6 +27,8 @@ export default function RepoItem(props) {
   const capitalizeFirstLetter = (string) => {
     return string.visibility[0].toUpperCase() + string.visibility.slice(1);
   };
+
+  const libraryColors = githubColors;
 
   return (
     <>
@@ -48,32 +51,34 @@ export default function RepoItem(props) {
           },
         }}
       >
+        <Typography variant='h6' style={{ fontWeight: 600 }}>
+          <Highlighter
+            highlightClassName='YourHighlightClass'
+            searchWords={[filterQuery]}
+            autoEscape={true}
+            textToHighlight={repo.name}
+          />
+        </Typography>
         <Box sx={{ mb: 0 }}>
-          <Typography variant="h6" style={{ fontWeight: 600 }}>
-            <Highlighter
-              highlightClassName="YourHighlightClass"
-              searchWords={[filterQuery]}
-              autoEscape={true}
-              textToHighlight={repo.name}
+          <Typography sx={{ mt: 1.5, mb: 0.2 }} color='text.secondary'>
+            <CircleIcon
+              sx={{ fontSize: 12, color: `${libraryColors[language]}`, mr: 1 }}
             />
-          </Typography>
-          <Typography sx={{ mt: 1.5 }} color="text.secondary">
-            <CircleIcon sx={{ fontSize: 13 }} />
             {language}
           </Typography>
-          <Typography color="text.secondary">
-            <RadioButtonCheckedIcon sx={{ fontSize: 10 }} />
+          <Typography color='text.secondary' sx={{ mb: 0.2 }}>
+            <RadioButtonCheckedIcon sx={{ fontSize: 10, mr: 1 }} />
             Issues:{open_issues}
           </Typography>
 
-          {visibility === "public" ? (
-            <Typography color="text.secondary">
-              <LockOpenIcon sx={{ fontSize: 15 }} />
+          {visibility === 'public' ? (
+            <Typography color='text.secondary'>
+              <LockOpenIcon sx={{ fontSize: 13, mr: 0.8, mb: 0.2 }} />
               {capitalizeFirstLetter({ visibility })}
             </Typography>
           ) : (
             <Typography>
-              <LockIcon sx={{ fontSize: 15 }} />
+              <LockIcon sx={{ fontSize: 13, mr: 0.8, mb: 0.2 }} />
               {capitalizeFirstLetter({ visibility })}
             </Typography>
           )}
@@ -87,7 +92,7 @@ export default function RepoItem(props) {
             color="text.secondary"
           >
             {watchers}
-            <RemoveRedEyeIcon sx={{ fontSize: 15 }} />
+            <RemoveRedEyeIcon sx={{ fontSize: 15, ml: 1 }} />
           </Typography>
         </Box>
       </Card>
