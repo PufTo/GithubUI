@@ -46,6 +46,8 @@ const supportedFileType = (filename) => {
 export default function FileDisplay(props) {
   const { fileName, fileContent } = props;
 
+  console.log("FILE PROPSSS ----", fileName, fileContent);
+
   const fileType = supportedFileType(fileName);
 
   if (fileType === 'image') {

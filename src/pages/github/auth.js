@@ -13,7 +13,6 @@ const useFetchUserData = (code) => {
     if (!code) return;
 
     const fetchData = async () => {
-      // console.log("fetching", url);
       setStatus("fetching");
       try {
         const tokenResponse = await fetch(`/api/auth?code=${code}`, {
@@ -25,11 +24,7 @@ const useFetchUserData = (code) => {
 
         const tokenData = await tokenResponse.json();
 
-        // console.log(tokenData.data);
-        // console.log(tokenData.access_token);
         const { access_token } = tokenData.data;
-
-        // console.log(access_token);
 
         const userResponse = await fetch("https://api.github.com/user", {
           method: "GET",
@@ -41,12 +36,11 @@ const useFetchUserData = (code) => {
 
         const userData = await userResponse.json();
 
-        //console.log(userData);
-
         const userStateInfo = {
           profileImage: userData.avatar_url,
           username: userData.login,
           name: userData.name,
+          token: access_token,
         };
 
         console.log(userStateInfo);
